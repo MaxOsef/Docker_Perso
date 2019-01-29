@@ -1,0 +1,14 @@
+################ Docker section ############################################# 
+alias sdockerd="sudo systemctl start docker"
+alias stdockerd="sudo systemctl stop docker"
+
+alias sdockerc="docker start"
+
+alias psdocker="docker ps -a"
+alias kdocker='kdocker(){docker kill $(docker ps -a -q); unset -f kdocker;}; kdocker'
+alias rmdocker='rmdocker(){docker rm $(docker ps -a -q); unset -f rmdocker;}; rmdocker'
+
+
+alias webshell="~/.local/devilbox/shell.sh"
+
+

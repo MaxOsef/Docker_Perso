@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Checking if docker deamon is up.
+#
+# If not, start deamon.
+DOCKERSTATE=$(systemctl status docker | grep Active | awk '{print $2}')
+echo "-------------- Starting Docker container ---------------------"
+
+if [[ $DOCKERSTATE == "inactive" ]]; then
+    echo "/!\\\n\nDocker deamon is disable/!\\\n\n"
+    echo "-------------- Starting Docker Deamon ---------------------"
+    sudo systemctl start docker
+fi
+
+# Moving to devilbox location.
+#
+# Adapt to match your configuration.
+cd ~/.local/devilbox/
+
+
+# Run docker container that is needed.
+docker-compose up httpd php mysql
